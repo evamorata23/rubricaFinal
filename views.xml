@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="ir.actions.act_window" id="hospital_list_action">
+            <field name="name">hospital</field>
+            <field name="res_model">rubricaFinal.hospital</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="arch" type="xml">
+                <tree string="Listado de hospitales">
+                    <field name="name" />
+                    <field name="hospital_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <menuitem name="Gestion de Hospitales" id="rubricaFinal_menu_root"/>
+    
+        <menuitem name="Hospitales" id="rubricaFinal_menu_hospital" parent="rubricaFinal_menu_root"/>
+    </data>
+</openerp>
