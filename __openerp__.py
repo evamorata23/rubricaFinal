@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "rubricaFinal",
+    'name': "rubricafinal",
 
     'summary': """Hospitales""",
     
     'description': """
-        rubricaFinal:
+        rubricaFinal de Odoo:
     """,
 
 

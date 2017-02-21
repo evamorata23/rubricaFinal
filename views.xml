@@ -1,21 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <record model="ir.actions.act_window" id="hospital_list_action">
-            <field name="name">hospital</field>
-            <field name="res_model">rubricaFinal.hospital</field>
+        <record model='ir.actions.act_window' id='hospitales_list_action'>
+            <field name="name">hospitales</field>
+            <field name="res_model">rubricafinal.hospital</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
             <field name="arch" type="xml">
-                <tree string="Listado de hospitales">
-                    <field name="name" />
-                    <field name="hospital_id"/>
+                <tree string="Hospital Tree">
+                    <field name="name"/>
+                    <field name="consultas_id"/>
                 </tree>
             </field>
         </record>
 
-        <menuitem name="Gestion de Hospitales" id="rubricaFinal_menu_root"/>
-    
-        <menuitem name="Hospitales" id="rubricaFinal_menu_hospital" parent="rubricaFinal_menu_root"/>
+        <record model="ir.ui.view" id="hospitales_tree">
+            <field name="name">hospital.tree</field>
+            <field name="model">rubricafinal.hospital</field>
+            <field name="arch" type="xml">
+                <tree string="Hospotal Tree">
+                    <field name="name"/>
+                    <field name="consultas_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <menuitem id="rubrica_menu" name="Hospitales"/>
+        
+        <menuitem id="Hospitales_menu" name="Hospitales" parent = "rubrica_menu"/>
+
+        <menuitem name="listado de hospitales" id="rubrica_list_hospitales" parent="Hospitales_menu" action="hospitales_list_action"/>
+
     </data>
 </openerp>
