@@ -18,18 +18,139 @@
             <field name="name">hospital.tree</field>
             <field name="model">rubricafinal.hospital</field>
             <field name="arch" type="xml">
-                <tree string="Hospotal Tree">
+                <tree string="Hospital Tree">
                     <field name="name"/>
                     <field name="consultas_id"/>
                 </tree>
             </field>
         </record>
 
-        <menuitem id="rubrica_menu" name="Hospitales"/>
-        
-        <menuitem id="Hospitales_menu" name="Hospitales" parent = "rubrica_menu"/>
+        <record model='ir.actions.act_window' id='consultas_list_action'>
+            <field name="name">consultas</field>
+            <field name="res_model">rubricafinal.consultas</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="arch" type="xml">
+                <tree string="Consultas Tree">
+                    <field name="name"/>
+                    <field name="hospital_id"/>
+                    <field name="medicos_id"/>
+                    <field name="pacientes_id"/>
+                </tree>
+            </field>
+        </record>
 
+        <record model="ir.ui.view" id="consultas_tree">
+            <field name="name">consultas.tree</field>
+            <field name="model">rubricafinal.consultas</field>
+            <field name="arch" type="xml">
+                <tree string="Consultas Tree">
+                    <field name="name"/>
+                    <field name="hospital_id"/>
+                    <field name="medicos_id"/>
+                    <field name="pacientes_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model='ir.actions.act_window' id='ambulancias_list_action'>
+            <field name="name">ambulancias</field>
+            <field name="res_model">rubricafinal.ambulancias</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="arch" type="xml">
+                <tree string="Consultas Tree">
+                    <field name="name"/>
+                    <field name="hospital_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="ambulancias_tree">
+            <field name="name">ambulancias.tree</field>
+            <field name="model">rubricafinal.ambulancias</field>
+            <field name="arch" type="xml">
+                <tree string="Ambulancias Tree">
+                    <field name="name"/>
+                    <field name="hospital_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model='ir.actions.act_window' id='medicos_list_action'>
+            <field name="name">medicos</field>
+            <field name="res_model">rubricafinal.medicos</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="arch" type="xml">
+                <tree string="Medicos Tree">
+                    <field name="name"/>
+                    <field name="hospital_id"/>
+                    <field name="consultas_id"/>
+                    <field name="pacientes_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="medicos_tree">
+            <field name="name">medicos.tree</field>
+            <field name="model">rubricafinal.medicos</field>
+            <field name="arch" type="xml">
+                <tree string="Medicos Tree">
+                    <field name="name"/>
+                    <field name="hospital_id"/>
+                    <field name="consultas_id"/>
+                    <field name="pacientes_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model='ir.actions.act_window' id='pacientes_list_action'>
+            <field name="name">pacientes</field>
+            <field name="res_model">rubricafinal.pacientes</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="arch" type="xml">
+                <tree string="Pacientes Tree">
+                    <field name="name"/>
+                    <field name="hospital_id"/>
+                    <field name="medicos_id"/>
+                    <field name="consultas_id"/>
+                </tree>
+                
+            </field>
+
+        </record>
+
+        <record model="ir.ui.view" id="pacientes_tree">
+            <field name="name">pacientes.tree</field>
+            <field name="model">rubricafinal.pacientes</field>
+            <field name="arch" type="xml">
+                <tree string="Pacientes Tree">
+                    <field name="name"/>
+                    <field name="hospital_id"/>
+                    <field name="medicos_id"/>
+                    <field name="consultas_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <menuitem id="rubrica_menu" name="Hospitales"/>
+
+        <menuitem id="Hospitales_menu" name="Hospitales" parent = "rubrica_menu"/>
         <menuitem name="listado de hospitales" id="rubrica_list_hospitales" parent="Hospitales_menu" action="hospitales_list_action"/>
+
+        <menuitem id="Consultas_menu" name="Consultas" parent = "rubrica_menu"/>
+        <menuitem name="listado de consultas" id="rubrica_list_consultas" parent="Consultas_menu" action="consultas_list_action"/>
+
+        <menuitem id="Ambulancias_menu" name="Ambulancias" parent = "rubrica_menu"/>
+        <menuitem name="listado de ambulancias" id="rubrica_list_ambulancias" parent="Ambulancias_menu" action="ambulancias_list_action"/>
+
+        <menuitem id="Medicos_menu" name="Medicos" parent = "rubrica_menu"/>
+        <menuitem name="listado de medicos" id="rubrica_list_medicos" parent="Medicos_menu" action="medicos_list_action"/>
+
+        <menuitem id="Pacientes_menu" name="Pacientes" parent = "rubrica_menu"/>
+        <menuitem name="listado de pacientes" id="rubrica_list_pacientes" parent="Pacientes_menu" action="pacientes_list_action"/>
 
     </data>
 </openerp>
